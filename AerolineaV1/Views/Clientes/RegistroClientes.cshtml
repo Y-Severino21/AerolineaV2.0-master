@@ -1,0 +1,39 @@
+﻿@model Clientes
+
+    <form asp-action="RegistroClientes" method="post">
+
+        <div class="form-group">
+            <label asp-for="Nombre" class="control-label"></label>
+            <input asp-for="Nombre" class="form-control" />
+            <span asp-validation-for="Nombre" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Apellido" class="control-label"></label>
+            <input asp-for="Apellido" class="form-control" />
+            <span asp-validation-for="Apellido" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Cedula" class="control-label"></label>
+            <input asp-for="Cedula" class="form-control" />
+            <span asp-validation-for="Cedula" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="DIreccion" class="control-label"></label>
+            <input asp-for="DIreccion" class="form-control" />
+            <span asp-validation-for="DIreccion" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="EMail" class="control-label"></label>
+            <input asp-for="EMail" class="form-control" />
+            <span asp-validation-for="EMail" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Destino" class="control-label"></label>
+            <input asp-for="Destino" class="form-control" />
+            <span asp-validation-for="Destino" class="text-danger"></span>
+        </div>
+
+        <div class="form-group col-md-6">
+            <input type="submit" value="Registrar Clientes" class="btn btn-primary btn-block" />
+        </div>
+    </form>

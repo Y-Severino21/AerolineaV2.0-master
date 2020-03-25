@@ -1,0 +1,58 @@
+﻿@model IEnumerable<AerolineaV1.Models.Vuelo>
+
+@{
+    ViewData["Title"] = "Vuelos";
+}
+
+<h1>Vuelos Registrados</h1>
+<hr />
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Destino)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Piloto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModeloAvion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pasajeros)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaAbordaje)
+            </th>
+            <th>
+                <a asp-action="AddOrEdit" class="btn btn-outline-success"><i class="far fa-plus-square"></i> Vuelo</a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Destino)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Piloto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModeloAvion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pasajeros)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaAbordaje)
+            </td>
+            <td>
+                <a asp-action="AddOrEdit" asp-route-id="@item.VueloID"><i class="fa fa-marker fa-lg"></i></a> |
+                <a asp-action="Delete" asp-route-id="@item.VueloID" class="text-danger ml-1" onclick="return confirm('Seguro que deseas borrar este registro?')"><i class="fa fa-trash-alt fa-lg"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

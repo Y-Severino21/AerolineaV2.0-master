@@ -1,0 +1,53 @@
+﻿@model IEnumerable<AerolineaV1.Models.Empleado>
+
+@{
+    ViewData["Title"] = "Listado Empleados";
+}
+
+<h3>Empleados Registrados</h3>
+<hr />
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Cedula)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Puesto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Salario)
+            </th>
+            <th>
+                <a asp-action="AddOrEdit" class="btn btn-outline-success"><i class="far fa-plus-square"></i> Empleado</a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cedula)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Puesto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Salario)
+                </td>
+                <td>
+                    <a asp-action="AddOrEdit" asp-route-id="@item.EmpID"><i class="fa fa-marker fa-lg"></i></a>
+                    <a asp-action="Delete" asp-route-id="@item.EmpID" class="text-danger ml-1" onclick="return confirm('Seguro que deseas borrar este registro?')"><i class="fa fa-trash-alt fa-lg"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
